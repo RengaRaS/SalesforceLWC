@@ -1,0 +1,34 @@
+<template>
+    <lightning-card>
+        <b> Child LWC </b>
+    </lightning-card>
+    
+    <lightning-card>
+        <b> Value Sent from parent</b>
+       <li>{globalParam}</li>
+    </lightning-card>
+
+    <lightning-card>
+        <b> Button to trigger server call</b>
+        <lightning-button label='Get Contracts' onclick={getContracts}></lightning-button>
+        <template for:each={leadResult} for:item="record" for:index="index">
+            <li key={record.Id}>{record.Name}</li>
+        </template>
+    </lightning-card>
+
+    <lightning-card>
+        <b> Button to test the External Js</b>
+        <lightning-button label='Fire External Js' onclick={fireExternalJs}></lightning-button>
+    </lightning-card>
+
+    <lightning-card>
+        <b> Button to test the component Events</b>
+        <lightning-button id='buttonId' label='Fire Event' onclick={triggerEvent}></lightning-button>
+    </lightning-card>
+
+    <lightning-card>
+        <b> App Event Value from Child 2</b>
+       <li>{appEventParam}</li>
+    </lightning-card>
+
+</template>

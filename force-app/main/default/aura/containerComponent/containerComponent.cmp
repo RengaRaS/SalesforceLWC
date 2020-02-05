@@ -1,0 +1,15 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable">
+    <aura:attribute name="lwcParam" type="string"/>
+    <lightning:layout> 
+        <lightning:layoutItem>
+            <c:lwcParentCmp></c:lwcParentCmp>
+        </lightning:layoutItem>
+        <lightning:layoutItem>
+            <c:lwcChild2 onevttoAura="{!c.captureLwcEvt}"></c:lwcChild2>
+        </lightning:layoutItem>
+        <lightning:layoutItem>
+            <li>{!v.lwcParam}</li>
+        </lightning:layoutItem>
+    </lightning:layout>
+    
+</aura:component>

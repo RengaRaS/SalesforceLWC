@@ -1,0 +1,47 @@
+<template>
+    
+    <lightning-layout>
+    <lightning-layout-item padding="around-small" flexibility="auto">  
+        <lightning-card>
+            <b> Parent LWC </b>
+        </lightning-card>  
+        <lightning-card >
+            <b class="blue-bg"> Wired Attribute without Parameter (Accounts)</b>
+            <template for:each={threeDbAccs.data} for:item="record" for:index="index">
+                <li key={record.Id}>{record.Name}</li>
+            </template>
+        </lightning-card>
+
+        <lightning-card>
+            <b> Wired Function without Parameter (Contacts)</b>
+            <template for:each={contactResult} for:item="record" for:index="index">
+                <li key={record.Id}>{record.Name}</li>
+            </template>
+            {errors}
+        </lightning-card>
+ 
+        <lightning-card>
+            <b> Wired Function with Parameter (Contact)</b>
+            <li key={singleContact}>{singleContact}</li>
+        </lightning-card>
+
+        <lightning-card>
+            <b> Button to test the wired result  </b>
+            <lightning-button label='Check result' onclick={handleButtonClick}></lightning-button>
+        </lightning-card>
+        
+        <lightning-card>
+            <b> Component Event (Parent Child Communication)  </b>
+            <lightning-button label='Get Child Parameter' onclick={getChildParam}></lightning-button></br>
+            <div if:true={eventResult}>
+            <li>{eventResult.label}</li>
+            <li>{eventResult.id}</li>
+            </div>
+        </lightning-card>
+    </lightning-layout-item>
+    
+    <lightning-layout-item padding="around-small"  flexibility="auto">
+        <c-lwc-child onsenddata={handleEvent} global-param='Sent From Parent'></c-lwc-child>
+    </lightning-layout-item>
+    </lightning-layout>
+</template>

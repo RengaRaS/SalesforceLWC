@@ -1,0 +1,25 @@
+<template>
+    <lightning-card>
+        <b> Child LWC 2 </b>
+    </lightning-card>
+
+    <lightning-card>
+        <b> Button to test the Application Events</b>
+        <lightning-button  label='Fire App Event' onclick={triggerAppEvent}></lightning-button>
+    </lightning-card>
+
+    <lightning-card>
+        <b> Button to test the Events to Aura</b>
+        <lightning-button  label='Hello Aura' onclick={triggerAuraCmp}></lightning-button>
+    </lightning-card>
+
+    <lightning-card>
+        <b> One Way Binding</b>
+        <lightning-input type='text' label='Box1' value={bindingVariable} onchange={getVariableValue}></lightning-input>
+        <br/>Box 1 Result : {box1Result}
+        <!-- <lightning-input type='text' label='Box2' value='Duplicate No 1' class="myClassName" ></lightning-input>
+        <lightning-input type='text' label='Box3' value='Duplicate No 2' class="myClassName"></lightning-input>
+        
+        <br/><lightning-button  label='Get Typed Value' onclick={getTypedData}></lightning-button> -->
+    </lightning-card>
+</template>
